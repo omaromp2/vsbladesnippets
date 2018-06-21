@@ -1,0 +1,188 @@
+{
+	// Place your snippets for blade here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"url": {
+		"prefix": "url",
+		"body": "{{url('#')}}",
+		"description": "Log output to console"
+	}, 
+	"asset": {
+		"prefix": "ass",
+		"body": "{{asset('#')}}",
+		"description": "Log output to console"
+	}, 
+	"error line":{
+		"prefix": "erl", 
+		"body": "{{ '$1'errors->has('#') ? ' has-error' : '' }}", 
+		"description": "Error line for css class in validation"
+	}, 
+	"error form":{
+		"prefix": "erf", 
+		"body":[
+			"@if ('$1'errors->has('#'))", 
+			 "<span class='help-block'>", 
+			 "<strong>{{ $errors->first('#') }}</strong>",
+			 "</span>",
+			 "@endif"
+			], 
+		"description": "Error for form fields."
+	},
+
+	"form open":{
+		"prefix": "form:open",
+		"body": "{!! Form::open() !!}", 
+		"description": "Blade Form Open."
+	}, 
+	"form close": {
+		"prefix": "form:close",
+		"body": "{!! Form::close() !!}",
+		"description": "Blade Form close."
+	},
+	"form token": {
+		"prefix": "form:token",
+		"body": "{!! Form::token() !!}",
+		"description": "Blade Form Token."
+	},
+	"form model": {
+		"prefix": "form:model",
+		"body": "{!! Form::model('$1$user',[]) !!}",
+		"description": "Blade Form model."
+	},
+	"form label": {
+		"prefix": "form:label",
+		"body": "{!! Form::label('$1$for', '$2$text', []) !!}",
+		"description": "Blade Form label."
+	},
+	"form text":{
+		"prefix": "form:text", 
+		"body": "{!! Form::text('$1$name', '$2$value', []) !!}", 
+		"description": "form txt box"
+	}, 
+	"form text area":{
+		"prefix": "form:textarea",
+		"body": "{!! Form::textarea('$1name', '$2value', []) !!}", 
+		"description": "form text area"
+	}, 
+	"form password":{
+		"prefix": "form:pass", 
+		"body": "{!! Form::password('$1name', []) !!}", 
+		"description": "form password field"
+	},
+	"form hidden":{
+		"prefix": "form:hidden", 
+		"body": "{!! Form::hidden('$1name', '$2value', []) !!}",
+		"description": "form hidden value"
+	}, 
+	"form email":{
+		"prefix": "form:email", 
+		"body": "{!! Form::email('$1name', '$2value', []) !!}", 
+		"description": "form email"
+	}, 
+	"form file":{
+		"prefix": "form:file", 
+		"body": "{!! Form::file('$1name', []) !!}", 
+		"description": "form file input"
+	}, 
+	"form checkbox":{
+		"prefix": "form:checkbox", 
+		"body": "{!! Form::checkbox('$1name', '$2value', '$3checked', []) !!}", 
+		"description": "form checkbox"
+	}, 
+	"form radio":{
+		"prefix": "form:radio", 
+		"body": "{!! Form::radio('$1name', '$2value', '$3checked', []) !!}", 
+		"description": "form radio"
+	}, 
+	"form number":{
+		"prefix": "form:number", 
+		"body": "{!! Form::number('$1name', '$2value', []) !!}", 
+		"description": "form number"
+	}, 
+	"form date":{
+		"prefix": "form:date", 
+		"body": "{!! Form::date('$1name', '$2date', []) !!}", 
+		"description": "form date"
+	}, 
+	"form select":{
+		"prefix": "form:select", 
+		"body": "{!! Form::select('$1name', '$2optionsArray', '$3defaultKey', []) !!}", 
+		"description": "form select"
+	}, 
+	"form select range":{
+		"prefix": "form:selectrange", 
+		"body": "{!! Form::selectRange('$1name', '$2min', '$3max'), [] !!}", 
+		"description": "form select range"
+	}, 
+	"form select month":{
+		"prefix": "form:selectmonth", 
+		"body": "{!! Form::selectMonth('$1name', []) !!}", 
+		"description": "form select month"
+	}, 
+	"form submit":{
+		"prefix": "form:submit", 
+		"body": "{!! Form::submit('$1text', []) !!}", 
+		"description": "form submit"
+	}, 
+
+	"Boot Text":{
+		"prefix": "boottext", 
+		"body": [
+			"<div class=\"form-group{{ $errors->has('$1') ? ' has-error' : '' }}\">\n", 
+			"\t{!! Form::label('$1', 'Input label') !!}\n", 
+			"\t{!! Form::text('$1', null, ['class' => 'form-control', 'required' => 'required']) !!}\n", 
+			"\t<small class=\"text-danger\">{{ $errors->first('$1') }}</small>\n", 
+			"</div>"
+		], 
+		"description": "Form text with error"
+	}, 
+
+	"Boot Form":{
+		"prefix": "bootform", 
+		"body": [
+			"{!! Form::open(['method' => 'POST', 'route' => 'routeName', 'class' => 'form-horizontal']) !!}\n", 
+			"\tboottext\n", 
+			"\t<div class=\"btn-group pull-right\">\n", 
+			"\t\t{!! Form::reset(\"Reset\", ['class' => 'btn btn-warning']) !!}", 
+			"\t\t{!! Form::submit(\"Add\", ['class' => 'btn btn-success']) !!}", 
+			"\t</div>\n", 
+			"{!! Form::close() !!}"
+		], 
+		"description": "Form open snippet"
+	}, 
+	"Boot Select":{
+		"prefix": "bootselect", 
+		"body": [
+			"<div class=\"form-group{{ $errors->has('inputname') ? ' has-error' : '' }}\">", 
+			"\t{!! Form::label('inputname', 'Input label') !!}\n", 
+			"\t{!! Form::select('inputname', $options, $selected_value,['class' => 'form-control', 'required' => 'required', 'multiple']) !!}\n",
+			"\t<small class=\"text-danger\">{{ $errors->first('inputname') }}</small>", 
+			"</div>"
+		], 
+		"description": "Form select with error snippet"
+	}, 
+	"Boot File":{
+		"prefix": "bootfile", 
+		"body": [
+			"<div class=\"form-group{{ $errors->has('inputname') ? ' has-error' : '' }}\">\n", 
+			"\t{!! Form::label('inputname', 'File label') !!}\n", 
+			"\t{!! Form::file('inputname', ['required' => 'required']) !!}\n", 
+			"\t<p class=\"help-block\">Help block text</p>", 
+			"\t<small class=\"text-danger\">{{ $errors->first('inputname') }}</small>\n", 
+			"</div>"
+		], 
+		"description": "Form file with error"
+	}
+
+}
